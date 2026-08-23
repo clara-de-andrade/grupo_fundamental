@@ -1,0 +1,162 @@
+%% Misc. macros
+
+\newcommand*\shortname{Clara de Andrade}
+\newcommand*\license{Creative Commons Atribuição 4.0 Internacional}
+\newcommand*\legalcode{https://creativecommons.org/licenses/by/4.0/legalcode.pt}
+
+\newcommand*\asup{\textsuperscript{\ul{a}}}
+\newcommand*\osup{\textsuperscript{\ul{o}}}
+
+
+%% Math macros
+
+\renewcommand*{\;}{\ensuremath{\thickspace}}
+
+\newcommand*{\mrm}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand*{\mbf}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand*{\msf}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand*{\mbb}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand*{\mcl}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand*{\mfr}[1]{\ensuremath{\mathfrak{#1}}}
+
+% Miscellaneous
+\newcommand*\N{\ensuremath{\mathbb{N}}}
+\newcommand*\Z{\ensuremath{\mathbb{Z}}}
+\newcommand*\Q{\ensuremath{\mathbb{Q}}}
+\newcommand*\R{\ensuremath{\mathbb{R}}}
+\newcommand*\C{\ensuremath{\mathbb{C}}}
+\renewcommand*\emptyset{\ensuremath{\varnothing}}
+
+\newcommand*\del{\ensuremath{\partial}}
+\newcommand*\D{\ensuremath{\mathrm{d}}}
+\newcommand*\df{\ensuremath{\mathrm{df}}}
+
+% Trigonometry
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\arccsch}{arccsch}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cotg}{cotg}
+
+\DeclareMathOperator{\arcsen}{arcsen}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arccotg}{arccotg}
+
+\DeclareMathOperator{\senh}{senh}
+\DeclareMathOperator{\tgh}{tgh}
+\DeclareMathOperator{\cotgh}{cotgh}
+
+\DeclareMathOperator{\arcsenh}{arcsenh}
+\DeclareMathOperator{\arctgh}{arctgh}
+\DeclareMathOperator{\arccotgh}{arccotgh}
+
+% Group theory
+\newcommand*\Sym{\ensuremath{\msf{Sym}}}
+
+% Category theory
+\newcommand*\dom{\ensuremath{\msf{dom}}}
+\newcommand*\cod{\ensuremath{\msf{cod}}}
+\newcommand*\id{\ensuremath{\msf{id}}}
+\newcommand*\comp{\ensuremath{\mathrel{\circ}}}
+\newcommand*\op{\ensuremath{\msf{op}}}
+\newcommand*\iso{\ensuremath{\cong}}
+
+\newcommand*\Set{\ensuremath{\msf{Set}}}
+\newcommand*\Mon{\ensuremath{\msf{Mon}}}
+\newcommand*\Grp{\ensuremath{\msf{Grp}}}
+\newcommand*\Ab{\ensuremath{\msf{Ab}}}
+
+% Proof environment notation
+\newcommand*\qedsymbol{\ensuremath{\quad\square}}
+\newcommand*\qed{\hfill\kern0.75em\qedsymbol}
+
+\newcommand*\qedaltsymbol{\ensuremath{\quad\dashv}}
+\newcommand*\qedalt{\hfill\kern0.75em\qedaltsymbol}
+
+
+%% Math environments
+
+\makeatletter
+\newenvironment{proof}[1][]%
+{\noindent{{\itshape Prova}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{remark}[1][]%
+{\noindent{{\itshape Comentário}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{fact}[1][]%
+{\noindent{{\bfseries Fato}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\newcounter{definition}
+\counterwithin{definition}{section}
+
+\makeatletter
+\newenvironment{definition}[1][]%
+{\refstepcounter{definition}%
+\noindent{{\bfseries Definição \thedefinition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{convention}[1][]%
+{\refstepcounter{definition}%
+\noindent{{\bfseries Convenção \thedefinition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\newcounter{proposition}
+\counterwithin{proposition}{section}
+
+\makeatletter
+\newenvironment{proposition}[1][]%
+{\refstepcounter{proposition}%
+\noindent{{\bfseries Proposição \theproposition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{lemma}[1][]%
+{\refstepcounter{proposition}%
+\noindent{{\bfseries Lema \theproposition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{theorem}[1][]%
+{\refstepcounter{proposition}%
+\noindent{{\bfseries Teorema \theproposition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\makeatletter
+\newenvironment{corollary}[1][]%
+{\refstepcounter{proposition}%
+\noindent{{\bfseries Corolário \theproposition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother

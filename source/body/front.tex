@@ -1,0 +1,27 @@
+\thispagestyle{empty}
+
+\title{%
+    \bfseries%
+    \Huge%
+    \subject%
+    \ifdefempty{\class}%
+    {}
+    { (\class)}%
+    \ifdefempty{\assignment}%
+    {}
+    {\\[0.15em]
+    \LARGE
+    \assignment}
+}%
+\author{%
+    \large%
+    \name%
+    \ifdefempty{\contact}%
+    {}
+    {\\
+    \contact}
+}%
+\date{%
+}
+
+\maketitle
