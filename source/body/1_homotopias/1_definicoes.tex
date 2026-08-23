@@ -1,0 +1,321 @@
+\subsection{Definição e exemplos}
+
+Lembre-se que uma \emph{curva}%
+\footnote
+{
+    No contexto da teoria das homotopias, também é muito comum chamar curvas de \emph{caminhos}.
+}
+entre os pontos $p$, $q$ em um espaço $X$ é dada por uma função contínua $\gamma : I \to X$ parametrizada pelos pontos em um intervalo fechado $I = [a, b] \subseteq \R$, onde $\gamma(a) = p$ e $\gamma(b) = q$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = \R^2$.) Neste sentido, $\gamma$ é uma transformação contínua de $p$ até $q$ no espaço $X$, e informalmente, dizemos que o ponto $p$ é ``deformado'' por $\gamma$, que a deformação resulta em $q$, e que $X$ é o espaço onde ocorre essa deformação. De certa maneira, uma homotopia entre duas funções contínuas $f : X \to Y$ e $g : X \to Y$ é análoga a uma transformação contínua de $f$ até $g$ no espaço $C(X, Y)$; ou seja, uma homotopia $\eta$ entre $f$ e $g$ é intuitivamente uma ``deformação'' de $f$ em $g$ ocorrendo em $C(X, Y)$.%
+\footnote
+{
+    Esta intuição vale precisamente quando temos $X$ um espaço Haussdorf localmente compacto e o espaço $C(X, Y)$ é dado a topologia compacto-aberto, pois neste caso existe uma bijeção natural
+    \[
+        \Phi : \{ \text{curvas em $C(X, Y)$} \} \iso \{ \text{funções contínuas de $X \times I$ em $Y$} \}
+    \]
+    definida por $\Phi(\gamma) : (x, t) \mapsto \gamma(x, t)$ para toda curva $\gamma : I \to C(X, Y)$. Contudo, no que segue, consideramos homotopias em geral onde $X$ é um espaço arbitrário e $\Phi(\gamma)$ não é sempre contínua.
+}
+
+\begin{figure}[htpb]
+\centering
+\begin{tikzpicture}
+    \draw [thick]
+        (-2,-1)
+            node [left] {$p$}
+        to[out=45,in=135]
+        (1,0)
+            node [below left] {$\gamma(t)$}
+        to[out=-45,in=-90]
+        (2,1)
+            node [right] {$q$}
+        ;
+
+    \draw [fill]
+        (-2,-1) circle (1pt)
+        (1,0) circle (1pt)
+        (2,1) circle (1pt)
+        ;
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+
+    \draw [fill, lightgray]
+        (-2,-1)
+        to[out=-60,in=-30]
+        (0,1)
+        to[out=140,in=90]
+        (-2,0)
+        to[out=-90,in=120]
+        (-2,-1)
+        ;
+
+    \draw [dashed]
+        (-2,-1)
+        to[out=-60,in=-30]
+        (0,1)
+            node [above right] {$f(X)$}
+        to[out=140,in=90]
+        (-2,0)
+        to[out=-90,in=120]
+        (-2,-1)
+        ;
+
+    \draw [fill, lightgray]
+        (2,-1)
+        to[out=-30,in=-30]
+        (4,1)
+        to[out=140,in=90]
+        (2,1)
+        to[out=-90,in=150]
+        (2,-1)
+        ;
+
+    \draw [dashed]
+        (2,-1)
+        to[out=-30,in=-30]
+        (4,1)
+            node [above right] {$g(X)$}
+        to[out=140,in=90]
+        (2,1)
+        to[out=-90,in=150]
+        (2,-1)
+        ;
+
+    \draw [thick]
+        %(-0.5,0.5)
+        %to[out=45,in=-120]
+        %(3.4,0.7)
+
+        (-1,-0.2)
+            node [left] {$f(x)$}
+        to[out=-30,in=-135]
+        (1, 0.1)
+            node [above, yshift=3pt] {$\eta(x, t)$}
+        to[out=45,in=135]
+        (3,-0.4)
+            node [above right] {$g(x)$}
+        
+        %(-0.8,-0.6)
+        %to[out=-45,in=210]
+        %(3.2,-0.6)
+        ;
+
+    \draw [fill]
+        %(-0.5,0.5) circle (1pt)
+        %(3.4,0.7) circle (1pt)
+        (-1,-0.2) circle (1pt)
+        (1, 0.1) circle (1pt)
+        (3,-0.4) circle (1pt)
+        %(-0.8,-0.6) circle (1pt)
+        %(3.2,-0.6) circle (1pt)
+        ; 
+\end{tikzpicture}
+\caption{Uma curva $\gamma$, e a componente de uma homotopia $\eta$ no ponto $x \in X$.}
+\end{figure}
+
+No que segue, exceto quando dito o contrário, seja $I = [0, 1]$. É fácil ver que toda função contínua $\eta : X \times I \to Y$ do espaço produto $X \times I$ em $Y$ induz uma família $\eta_t : x \mapsto \eta(x, t)$ de funções contínuas de $X$ em $Y$, parametrizada por $t \in I$, e pondo $f = \eta_0$ e $g = \eta_1$, temos em adição que $t \mapsto \eta_t$ é uma curva de $f$ até $g$ em $C(X, Y)$; ou seja, toda $\eta$ induz naturalmente uma ``deformação'' de $f$ em $g$. Mais que isso: se $\eta$ e $\eta'$ induzem curvas iguais $\eta_t = \eta'_t$ para todo $t \in I$, então $\eta = \eta'$. Logo, podemos representar um subconjunto dessas ``deformações'' por funções continuas $X \times I \to Y$, e aqui denominamos tais funções ``homotopias''. Obtemos uma definição:%
+\linebreak\vspace{-1.2em}
+
+\vspace{0.5em}
+
+\begin{definition}[(Homotopias)]
+    Sejam $f$ e $g$ funções contínuas de $X$ em $Y$. Uma \emph{homotopia} de $f$ até $g$ é uma função $\eta : X \times I \to Y$ sujeita às seguintes condições:%
+    \linebreak\vspace{-1.2em}
+%
+    \begin{enumerate}
+    [
+        itemsep=0pt,
+        label={(\roman*)}
+    ]
+        \item
+        $\eta$ é contínua.
+
+        \item
+        $\eta(x, 0) = f(x)$.
+        
+        \item
+        $\eta(x, 1) = g(x)$.
+    \end{enumerate}
+
+    Denotamos simbolicamente por $\eta : f \sim g$ o juízo de que $\eta$ é uma homotopia de $f$ até $g$, ou ainda por $f \sim g$ caso $\eta$ esteja implícito ou puder ser inferido pelo contexto. Dizemos que $g$ é \emph{homotópica a $f$} caso haja uma homotopia de $f$ até $g$, e denominamos o conjunto de tais funções a \emph{classe de homotopia de $f$}.
+    \qedalt
+\end{definition}
+
+Considere o seguinte exemplo de homotopia. Sejam $f$ e $g$ funções contínuas de $X$ em um espaço normado $E$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = I$, $E = \R^2$). Fixe $x \in X$ e seja $\gamma_x(t) \in E$ dado para qualquer $t \in \R$ pela equação paramétrica%
+\linebreak\vspace{-0.5em}
+%
+\begin{equation*}
+\begin{aligned}
+        \gamma_x(t)
+    &=  (1 - t) \cdot f(x) + t \cdot g(x)
+    \\
+    &=  f(x) + t \cdot (g(x) - f(x))
+\end{aligned}
+\end{equation*}
+da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. Note que, para $t \in I$, os pontos da forma $\gamma_x(t)$ são exatamente os pontos no segmento de reta entre $f(x)$ e $g(x)$, com $\gamma_x(0) = f(x)$ e $\gamma_x(1) = g(x)$. É evidente que $(x, t) \mapsto \gamma_x(t)$ é contínua e, portanto, uma homotopia de $f$ até $g$. Notavelmente, $\gamma_x : t \mapsto \gamma_x(t)$ é uma família de curvas em $E$, os segmentos de reta entre $f(x)$ e $g(x)$, parametrizada por $x \in X$, e a continuidade dessa homotopia segue da continuidade de $x \mapsto \gamma_x$.%
+\footnote
+{
+    Em geral, como $I = [0, 1]$ é Hausdorff e localmente compacto, então existe uma bijeção natural  
+    \[
+        \Phi : \{ \text{funções contínuas de $X$ em $C(I, Y)$} \} \iso \{ \text{funções contínuas de $X \times I$ em $Y$} \}
+    \]
+    definida por $\Phi(\gamma) : (x, t) \mapsto \gamma_x(t)$ para toda família $\{ \gamma_x \}_{x \in X}$ de curvas fechadas em $Y$ tal que $x \mapsto \gamma_x$ é contínua. Neste sentido, homotopias entre funções contínuas $f$, $g$ de $X$ em $Y$ são, mais precisamente, ``famílias contínuas'' de curvas fechadas de $f(x)$ até $g(x)$ em $Y$ indexadas por $x \in X$.
+}%
+\linebreak\vspace{-1.2em}
+
+\begin{figure}[htpb]
+\centering
+\begin{tikzpicture}
+    \draw
+        (-5,-2) -- (-1,2)
+        ;
+
+    \draw [thick]
+        (-4,-1) -- (-2,1)
+        ;
+
+    \draw [->]
+        (0,-1)
+        --
+        (2,1)
+            node [above] {$g(x) - f(x)$}
+        ;
+    
+    \draw [->]
+        (0,-1)
+        --
+        (-4,-1)
+            node [left, yshift=2pt] {$\gamma_x(0) = f(x)$}
+        ;
+
+    \draw [->]
+        (0,-1)
+        --
+        (-2,1)
+            node [left, yshift=2pt] {$\gamma_x(1) = g(x)$}
+        ;
+
+    \draw [->]
+        (0,-1)
+        --
+        (-3,0)
+            node [left, yshift=2pt] {$\gamma_x(t)$}
+        ;
+
+    \draw [fill]
+        (0,-1) circle (1pt)
+            node [below] {$\vec 0$};
+        ;
+    
+    
+\end{tikzpicture}
+\caption{Os componentes $\gamma_x$ em $x \in X$ são segmentos de reta entre $f(x)$ e $g(x)$.}
+\end{figure}
+
+Por um lado, o exemplo acima ilustra que quaisquer funções contínuas $f$, $g$ em um espaço normado $E$ são homotópicas uma à outra, e portanto há uma única classe de homotopia de tais funções em $E$. Por outro lado, ao tomar $Y \subset E$ um subespaço próprio em lugar de $E$, estamos com efeito restringindo o espaço onde ocorrem as deformações entre $f$ e $g$, e podemos ter classes de homotopia menos triviais.%
+\linebreak\vspace{-1.2em}
+
+No caso $E = \R^2$, considere os subespaços $D \subseteq \R^2$ e $S \subseteq \R^2$ de $E$ definidos por
+%
+\begin{equation*}
+\begin{gathered}
+    D = \{ (x, y) \in \R^2 : x^2 + y^2 < 1,5 \},
+    \\
+    A = \{ (x, y) \in \R^2 : 0,5 < x^2 + y^2 < 1,5 \};
+\end{gathered}
+\end{equation*}
+%
+ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$ é um anel centrado na origem com raio igual a $1,5$ e ``espessura'' igual a $1$.%
+\footnote
+{
+    Topologicamente, $D$ e $A$ são equivalentes, respectivamente, a uma bola $B^2$ em duas dimensões e uma esfera $S^1$ em uma dimensão. Escolhemos $D$ e $A$ em lugar de $B^2$ e $S^1$ para fins ilustrativos.
+}
+(Veja as figuras.)%
+\linebreak\vspace{-1.2em}
+
+\begin{figure}[htpb]
+\centering
+\captionsetup{singlelinecheck=off,justification=centering}
+\begin{tikzpicture}[scale=1.5]
+    \draw [fill, lightgray]
+        (0,0) circle (1.5)
+        ;
+    \draw [dashed, black]
+        (0,0) circle (1.5)
+        ;
+    
+    \draw [fill]
+        (1,0) circle (1pt)
+            node [right] {$p$}
+        ;
+    \draw [thick]
+        (0,0) circle (1)
+        ;
+
+    \draw 
+        ({cos(120)}, {sin(120)}) circle (1pt)
+            node [above] {$\gamma(s)$};
+
+    \draw [thick]
+        (0.2,0) circle (0.8)
+        (0.4,0) circle (0.6)
+        (0.6,0) circle (0.4)
+        (0.8,0) circle (0.2)
+        ;
+
+    \node [above right] at (1.141,1.141) {$D$};
+\end{tikzpicture}
+~~~
+\begin{tikzpicture}[scale=1.5]
+    \draw [fill, lightgray]
+        (0,0) circle (1.5)
+        ;
+    \draw [dashed, black]
+        (0,0) circle (1.5)
+        ;
+    
+    \draw [fill]
+        (1,0) circle (1pt)
+            node [right] {$p$}
+        ;
+    \draw [thick]
+        (0,0) circle (1)
+        ;
+
+    \draw 
+        ({cos(120)}, {sin(120)}) circle (1pt)
+            node [above] {$\gamma(s)$};
+
+    \draw [fill, white]
+        (0,0) circle (0.5)
+        ;
+    \draw [dashed, black]
+        (0,0) circle (0.5)
+        ;
+
+    \node [above right] at (1.141,1.141) {$A$};
+\end{tikzpicture}
+\caption{Comparação entre $\gamma(s) = (\cos(2\pi s), \sen(2\pi s))$ e $p = (1, 0)$ em $D$ e em $A$.}
+\end{figure}
+
+Note que $D$ contém inteiramente o segmento de reta entre quaisquer pontos no seu interior, e portanto, assim como $E$ no exemplo anterior, quaisquer duas funções contínuas em $D$ são homotópicas.%
+\footnote
+{
+    Por exemplo, veja na Figura 3, à esquerda, uma homotopia de $\gamma$ até $\msf{const}_p$ em $D$, dada por:
+    \[
+        \eta : (s, t) \mapsto ((1 - t) \cos (2 \pi s) + t, (1 - t) \sen(2 \pi s))
+    \]
+    Em palavras, se fixarmos $t \in I$, então a curva $s \mapsto \eta(s, t)$ em $D$ parametriza um círculo de raio $1 - t$ centrado em $(t, 0)$. É claro, existem outras tais homotopias; escolhemos esta para fins de ilustração.%
+    \linebreak\vspace{-0.5em}
+}
+Porém, isto já não é o caso em $A$; se $\msf{const}_p(s) = p$ é a curva constante no ponto $p = (1, 0)$, e se $\gamma(s) = (\cos(2\pi s), \sen(2\pi s))$ é a curva paramétrica do círculo unitário, então $\gamma$ e $\msf{const}_p$ são curvas não-homotópicas em $A$, e isto é um fato não-trivial acerca de $A$. Intuitivamente, uma família de curvas $\eta_s : I \to A$ de $\gamma(s)$ até $p$ deve conter uma descontinuidade em algum ponto $(s, \eta_s)$, e esta descontinuidade é causada por um ``buraco'' em $A$ correspondendo à região%
+\linebreak\vspace{-0.6em}
+%
+\begin{equation*}
+\begin{gathered}
+    D \setminus A = \{ (x, y) \in \R^2 : x^2 + y^2 \leq 0,5 \}.
+\end{gathered}
+\end{equation*}
+
+Em um sentido que tornaremos preciso mais adiante, é a existência, ou não, de uma família contínua de curvas entre $\gamma(s)$ e $p$, e portanto de uma homotopia entre $\gamma$ e $\msf{const}_p$, que formaliza a noção de que $D$ não possui ``buracos'' enquanto $A$ possui.
+
+%{\color{red} TODO? funções contínuas de $S^n$ em $X$}

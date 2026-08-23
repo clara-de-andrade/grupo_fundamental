@@ -1,0 +1,68 @@
+\subsection{Operações em curvas e homotopias}
+
+Para fins de conveniência, utilizamos a seguinte notação para curvas fechadas:%
+\linebreak\vspace{-1.2em}
+
+\vspace{0.5em}
+
+\begin{convention}[(Curvas)]
+    Sejam $p$ e $q$ pontos em $X$. Denotamos simbolicamente por $\gamma  : p \pathto q$ o juízo de que $\gamma$ é uma curva em $X$ de $p$ até $q$, i.e.\@ $\gamma : I \to X$ é uma função contínua de $I = [0, 1]$ em $X$ tal que $\gamma(0) = p$ e $\gamma(1) = q$.
+    \qedalt
+\end{convention}
+
+Pelas observações da seção anterior, se $f$ e $g$ são funções contínuas de $X$ em $Y$, então toda homotopia $\eta : f \sim g$ pode ser unicamente representada por uma curva $\gamma : f \pathto g$ em $C(X, Y)$, dada por $\gamma(t) : x \mapsto \eta(x, t)$. Logo, no desenvolvimento a seguir, os enunciados para curvas contêm as homotopias como um caso particular.
+
+Há uma operação muito natural entre curvas, denominada \emph{concatenação}, e que intuitivamente consiste em ``colar'' duas curvas $\alpha : p \pathto q$ e $\beta : q \pathto r$ em um mesmo espaço $X$ e que contém uma extremidade $q \in X$ em comum. O resultado é uma curva $\alpha \cdot \beta : p \pathto r$ entre as extremidades restantes e que passa por $q$ no caminho.%
+\linebreak\vspace{-1.2em}
+
+{\color{red} Figura: concatenação de $\alpha$ e $\beta$}
+
+Podemos definir $\alpha \cdot \beta$ como qualquer uma entre várias curvas que capturam esta intuição e em adição são homotópicas entre si, mas uma definição bastante natural é a seguinte. {\color{red} TODO: intuição da concatenação}
+
+\vspace{0.5em}
+
+\begin{definition}[(Concatenação)]
+    Sejam $p$, $q$ e $r$ pontos em $X$, e sejam $\alpha : p \pathto q$ e $\beta : q \pathto r$ curvas em $X$. Denotamos por $\alpha \cdot \beta : p \pathto r$ uma curva em $X$, dada por
+%
+    \begin{equation*}
+        (\alpha \cdot \beta)(t) =
+        \begin{cases}
+            \alpha(2t) & \text{se $0 \leq t \leq 0,5$} \\
+            \beta(2t - 1) & \text{se $0,5 \leq t \leq 1$}
+        \end{cases}
+    \end{equation*}
+%
+    para todo $t \in I$, e denominada a \emph{concatenação} de $\alpha$ e $\beta$.
+    \qedalt
+\end{definition}
+
+{\color{red} TODO: intuição da curva inversa}
+
+\vspace{0.5em}
+
+\begin{definition}[(Curva inversa)]
+    Sejam $p$ e $q$ pontos em $X$, e seja $\gamma : p \pathto q$ uma curva em $X$. Denotamos por $\gamma^{-1} : q \pathto p$ uma curva em $X$, a \emph{inversa} de $\gamma$, dada por%
+    \linebreak\vspace{-0.6em}
+%
+    \begin{equation*}
+        \alpha^{-1}(t) = \alpha(1 - t)
+    \end{equation*}
+%
+    para todo $t \in I$.
+    \qedalt
+\end{definition}
+
+{\color{red} TODO: intuição da curva constante}
+
+\vspace{0.5em}
+
+\begin{definition}[(Curva constante)]
+    Dado um ponto qualquer $p$ em $X$, definimos por
+%
+    \begin{equation*}
+        \msf{const}_p(t) = p
+    \end{equation*}
+%
+    para todo $t \in I$ uma curva em $X$, denominada a \emph{curva constante em $p$}.
+    \qedalt
+\end{definition}
