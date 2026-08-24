@@ -1,5 +1,7 @@
 \subsection{Definição e exemplos}
 
+% TODO: rework
+
 Lembre-se que uma \emph{curva}%
 \footnote
 {
@@ -211,6 +213,12 @@ da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. 
 \caption{Os componentes $\gamma_x$ em $x \in X$ são segmentos de reta entre $f(x)$ e $g(x)$.}
 \end{figure}
 
+
+\begin{convention}
+    Se $\eta : X \times I \to Y$ é uma homotopia qualquer, então também denotamos por $\eta_x$ o componente $t \mapsto \eta(x, t)$ de $\eta$ em um ponto $x \in X$ fixo, e por $\eta_t$ o componente $x \mapsto \eta(x, t)$ de $\eta$ em um ponto $t \in I$ fixo. Em palavras, $\{ \eta_x \}_{x \in X}$ é a famílias de curvas em $Y$ dada pelas componentes de $\eta$ em $X$, enquanto $t \mapsto \eta_t$ é a curva em $C(X, Y)$ que unicamente representa $\eta$ pela discussão anterior.
+    \qedalt
+\end{convention}
+
 Por um lado, o exemplo acima ilustra que quaisquer funções contínuas $f$, $g$ em um espaço normado $E$ são homotópicas uma à outra, e portanto há uma única classe de homotopia de tais funções em $E$. Por outro lado, ao tomar $Y \subset E$ um subespaço próprio em lugar de $E$, estamos com efeito restringindo o espaço onde ocorrem as deformações entre $f$ e $g$, e podemos ter classes de homotopia menos triviais.%
 \linebreak\vspace{-1.2em}
 
@@ -219,12 +227,12 @@ No caso $E = \R^2$, considere os subespaços $D \subseteq \R^2$ e $S \subseteq \
 \begin{equation*}
 \begin{gathered}
     D = \{ (x, y) \in \R^2 : x^2 + y^2 < 1,5 \},
-    \\
+    \quad
     A = \{ (x, y) \in \R^2 : 0,5 < x^2 + y^2 < 1,5 \};
 \end{gathered}
 \end{equation*}
 %
-ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$ é um anel centrado na origem com raio igual a $1,5$ e ``espessura'' igual a $1$.%
+ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$ é um anel centrado na origem com raio igual a $1,5$ e espessura igual a $1$. Em adição, considere $\gamma : [0, 2\pi] \to E$ uma curva dada por $\gamma(\theta) = (\cos(\theta), \sen(\theta))$ e $p = (1, 0)$ um ponto; ou seja, $\gamma$ descreve um círculo de raio unitário centrado na origem.%
 \footnote
 {
     Topologicamente, $D$ e $A$ são equivalentes, respectivamente, a uma bola $B^2$ em duas dimensões e uma esfera $S^1$ em uma dimensão. Escolhemos $D$ e $A$ em lugar de $B^2$ e $S^1$ para fins ilustrativos.
@@ -244,6 +252,12 @@ ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$
         ;
     
     \draw [fill]
+        ({cos(120)}, {sin(120)}) circle (1pt)
+            node [above] {$\gamma(\theta)$}
+        ({0.8*cos(120) + 0.2}, {0.8*sin(120)}) circle (1pt)
+        ({0.6*cos(120) + 0.4}, {0.6*sin(120)}) circle (1pt)
+        ({0.4*cos(120) + 0.6}, {0.4*sin(120)}) circle (1pt)
+        ({0.2*cos(120) + 0.8}, {0.2*sin(120)}) circle (1pt)
         (1,0) circle (1pt)
             node [right] {$p$}
         ;
@@ -251,15 +265,12 @@ ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$
         (0,0) circle (1)
         ;
 
-    \draw 
-        ({cos(120)}, {sin(120)}) circle (1pt)
-            node [above] {$\gamma(s)$};
-
     \draw [thick]
         (0.2,0) circle (0.8)
         (0.4,0) circle (0.6)
         (0.6,0) circle (0.4)
         (0.8,0) circle (0.2)
+        ({cos(120)}, {sin(120)}) -- (1,0)
         ;
 
     \node [above right] at (1.141,1.141) {$D$};
@@ -283,7 +294,7 @@ ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$
 
     \draw 
         ({cos(120)}, {sin(120)}) circle (1pt)
-            node [above] {$\gamma(s)$};
+            node [above] {$\gamma(\theta)$};
 
     \draw [fill, white]
         (0,0) circle (0.5)
@@ -294,20 +305,20 @@ ou seja, $D$ é um disco centrado na origem com raio igual a $1,5$, enquanto $A$
 
     \node [above right] at (1.141,1.141) {$A$};
 \end{tikzpicture}
-\caption{Comparação entre $\gamma(s) = (\cos(2\pi s), \sen(2\pi s))$ e $p = (1, 0)$ em $D$ e em $A$.}
+\caption{Comparação entre as curvas $\gamma(\theta)$ e $\msf{const}_p(\theta) = p$ em $D$ e $A$.}
 \end{figure}
 
-Note que $D$ contém inteiramente o segmento de reta entre quaisquer pontos no seu interior, e portanto, assim como $E$ no exemplo anterior, quaisquer duas funções contínuas em $D$ são homotópicas.%
+Note que $D$ contém inteiramente o segmento de reta entre quaisquer pontos no seu interior, e portanto, assim como $E$ no exemplo anterior, quaisquer duas funções contínuas em $D$ são homotópicas. Em particular, $\gamma$ é homotópica em $D$ à curva constante  $\msf{const}_p(\theta) = p$ no ponto $p$.%
 \footnote
 {
     Por exemplo, veja na Figura 3, à esquerda, uma homotopia de $\gamma$ até $\msf{const}_p$ em $D$, dada por:
     \[
-        \eta : (s, t) \mapsto ((1 - t) \cos (2 \pi s) + t, (1 - t) \sen(2 \pi s))
+        \eta : (\eta, t) \mapsto (1 - t) \cdot \gamma(\theta) + t \cdot p
     \]
-    Em palavras, se fixarmos $t \in I$, então a curva $s \mapsto \eta(s, t)$ em $D$ parametriza um círculo de raio $1 - t$ centrado em $(t, 0)$. É claro, existem outras tais homotopias; escolhemos esta para fins de ilustração.%
+    Em palavras, se fixarmos $\theta \in [0, 2\pi]$, então a curva $\eta_\theta$ descreve um segmento de reta entre $\gamma(\theta)$ e $p$, assim como no exemplo anterior. Notavelmente, como a Figura 3 ilustra, se fixarmos $t \in I$ em lugar de $\theta$, então a curva $\eta_t$ parametriza um círculo de raio $1 - t$ centrado em $t \cdot p = (t, 0)$.%
     \linebreak\vspace{-0.5em}
 }
-Porém, isto já não é o caso em $A$; se $\msf{const}_p(s) = p$ é a curva constante no ponto $p = (1, 0)$, e se $\gamma(s) = (\cos(2\pi s), \sen(2\pi s))$ é a curva paramétrica do círculo unitário, então $\gamma$ e $\msf{const}_p$ são curvas não-homotópicas em $A$, e isto é um fato não-trivial acerca de $A$. Intuitivamente, uma família de curvas $\eta_s : I \to A$ de $\gamma(s)$ até $p$ deve conter uma descontinuidade em algum ponto $(s, \eta_s)$, e esta descontinuidade é causada por um ``buraco'' em $A$ correspondendo à região%
+Porém, isto já não é o caso em $A$, pois em particular $\gamma$ e $\msf{const}_p$ são curvas não-homotópicas em $A$. {\it Isto é um fato não-trivial acerca de $A$}, mas intuitivamente, uma família $\{ \eta_\theta \}_{\theta \in [0, 2\pi]}$ de curvas entre $\gamma(\theta)$ e $\msf{const}_p(\theta)$ deve conter uma descontinuidade em algum ponto $\eta_\theta \in C(I, A)$, e ela é causada por um ``buraco'' em $A$, onde este buraco corresponde, visualmente, à região%
 \linebreak\vspace{-0.6em}
 %
 \begin{equation*}
@@ -316,6 +327,7 @@ Porém, isto já não é o caso em $A$; se $\msf{const}_p(s) = p$ é a curva con
 \end{gathered}
 \end{equation*}
 
-Em um sentido que tornaremos preciso mais adiante, é a existência, ou não, de uma família contínua de curvas entre $\gamma(s)$ e $p$, e portanto de uma homotopia entre $\gamma$ e $\msf{const}_p$, que formaliza a noção de que $D$ não possui ``buracos'' enquanto $A$ possui.
+Em um sentido que tornaremos preciso mais adiante, é a existência, ou não, de uma família contínua de curvas entre $\gamma(\theta)$ e $\msf{const}_p(\theta)$, logo de uma homotopia entre $\gamma$ e $\msf{const}_p$, que formaliza a noção de que $D$ não possui ``buracos'' enquanto $A$ possui.%
+\linebreak\vspace{-1.2em}
 
-%{\color{red} TODO? funções contínuas de $S^n$ em $X$}
+{\color{red} TODO: mais exemplos (funções contínuas de $S^n$ em $X$?)}
