@@ -97,15 +97,19 @@
 \makeatother
 
 \makeatletter
-\newenvironment{remark}[1][]%
-{\noindent{{\itshape Comentário}.
+\newenvironment{fact}[1][]%
+{\noindent{{\bfseries Fato}.
 \ifstrempty{#1}{}{#1}}}
 {\par\vspace{0.5em}}
 \makeatother
 
+\newcounter{remark}
+\counterwithin{remark}{section}
+
 \makeatletter
-\newenvironment{fact}[1][]%
-{\noindent{{\bfseries Fato}.
+\newenvironment{remark}[1][]%
+{\refstepcounter{remark}%
+\noindent{{\itshape Comentário \theremark}.
 \ifstrempty{#1}{}{#1}}}
 {\par\vspace{0.5em}}
 \makeatother
