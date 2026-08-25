@@ -255,15 +255,15 @@ Neste exemplo, a homotopia $(x, t) \mapsto \gamma_x(t)$ é dada por uma família
     \qedalt
 \end{remark}
 
-Outro exemplo importante de homotopia concerne as curvas em $S^n$ e $B^{n + 1}$, onde
+Outro exemplo importante de homotopia concerne as curvas em $S^n$ e $\overline{B^{n + 1}}$, onde
 %
 \begin{equation*}
     S^n = \{ x \in \R^{n + 1} : ||x|| = 1\},
     \quad
-    B^{n + 1} = \{ x \in \R^{n + 1} : ||x|| \leq 1\}
+    \overline{B^{n + 1}} = \{ x \in \R^{n + 1} : ||x|| \leq 1\}
 \end{equation*}
 %
-são subespaços de $\R^{n + 1}$. Como espaços topológicos, dizemos que $S^n$ é uma \emph{$n$-esfera}, e que $B^{n + 1}$ é uma \emph{$(n + 1)$-bola fechada}. Por exemplo, no caso $n = 1$, consideremos as homotopias da curva $\gamma(\theta) = (\cos(\theta), \sen(\theta))$, do círculo unitário centrado em $(0, 0)$, até a curva constante $\msf{const}_p(\theta) = p$ em $p = (1, 0)$, parametrizadas por $\theta \in [0, 2\pi]$.%
+são subespaços de $\R^{n + 1}$. Como espaços topológicos, dizemos que $S^n$ é uma \emph{$n$-esfera}, e que $\overline{B^{n + 1}}$ é uma \emph{$(n + 1)$-bola fechada}. Por exemplo, no caso $n = 1$, consideremos as homotopias da curva $\gamma(\theta) = (\cos(\theta), \sen(\theta))$, um círculo unitário centrado em $(0, 0)$, até a curva constante $\msf{const}_p(\theta) = p$ em $p = (1, 0)$, parametrizadas por $\theta \in [0, 2\pi]$.%
 \linebreak\vspace{-1.2em}
 
 \begin{figure}[htpb]
@@ -298,7 +298,7 @@ são subespaços de $\R^{n + 1}$. Como espaços topológicos, dizemos que $S^n$ 
         ;
 
     \node 
-        at (2.25,2.25) [above right] {$B^2$}
+        at (2.25,2.25) [above right] {$\overline{B^2}$}
         ;
 \end{tikzpicture}
 ~~~
@@ -325,11 +325,31 @@ Para todo $(\theta, t) \in [0, 2\pi] \times I$, o segmento de reta dado pela equ
 \begin{equation*}
     \eta(\theta, t) = (1 - t) \cdot \gamma(\theta) + t \cdot p
 \end{equation*}
-está contido em $B^2$ e é uma curva de $\gamma(\theta)$ até $p$, donde segue pelo exemplo anterior que $(\theta, t) \mapsto \eta(\theta, t)$ é uma homotopia de $\gamma$ até $\msf{const}_p$,%
+está contido em $\overline{B^2}$ e é uma curva de $\gamma(\theta)$ até $p$, donde segue pelo exemplo anterior que $(\theta, t) \mapsto \eta(\theta, t)$ é uma homotopia de $\gamma$ até $\msf{const}_p$,%
 \footnote
 {
-    Note que, se fixarmos $t$, então a curva $\theta \mapsto \eta(\theta, t)$ descreve um círculo de raio $1 - t$ centrado em $(t, 0)$. Portanto, a homotopia $\eta$ pode ser dada, de maneira equivalente, por uma ``deformação'' em $B^2$, onde o círculo unitário descrito pela curva $\gamma$ é ``contraído'' continuamente até o ponto $p$.
+    Note que, se fixarmos $t$, então a curva $\theta \mapsto \eta(\theta, t)$ descreve um círculo de raio $1 - t$ centrado em $(t, 0)$. Portanto, a homotopia $\eta$ pode ser dada, de maneira equivalente, por uma ``deformação'' em $\overline{B^2}$, onde o círculo unitário descrito pela curva $\gamma$ é ``contraído'' continuamente até o ponto $p$.
 }
-e em geral toda curva em $B^2$ é homotópica a uma curva constante por razões similares. Por outro lado, isto não é o caso em $S^1$, e de fato $\gamma$ é um contra-exemplo: não existem homotopias de $\gamma$ até $\msf{const}_p$ em $S^1$. {\it Isto é um fato não-trivial sobre $S^1$}, e nós teremos ferramentas para demonstrá-lo apenas nas seções seguintes, mas podemos vê-lo, intuitivamente, da seguinte forma. Pela Convenção 1.4, uma homotopia de $\gamma$ até $\msf{const}_p$ determina uma família $\{ \eta_\theta \}$ de curvas em $S^1$, com $\eta_\theta(0) = \gamma(\theta)$ e $\eta_\theta(1) = p$ para todo $\theta \in [0, 2\pi]$. Contudo, contrário à Proposição 1.2, toda tal família contém uma descontinuidade.
+e em geral toda curva em $\overline{B^2}$ é homotópica a uma curva constante por razões similares. Por outro lado, isto não é o caso em $S^1$, e de fato $\gamma$ é um contra-exemplo: não existem homotopias de $\gamma$ até $\msf{const}_p$ em $S^1$. {\it Isto é um fato não-trivial sobre $S^1$}, e podemos vê-lo da seguinte forma.%
+\linebreak\vspace{-1.2em}
 
-Esta descontinuidade ocorre precisamente no interior $B^2 \setminus S^1$ de $S^1$ como um subespaço de $\R^2$. De fato, se considerarmos em particular a homotopia $\eta$ entre $\gamma$ e $\msf{const}_p$ em $B^2$ dada acima, então é fácil ver que (i) para algum $\theta \in [0, 2\pi]$, a curva $t \mapsto \eta(\theta, t)$ intercepta um ponto em $B^2 \setminus S^1$, ou (ii) para algum $t \in I$, a curva $\theta \mapsto \eta(\theta, t)$ intercepta um ponto em $B^2 \setminus S^1$. Em ambos os casos, $\eta$ não é contínua, e em geral, podemos pensar sobre a inexistência de uma homotopia $\eta$ entre $\gamma$ e $\msf{const}_p$ em termos de descontinuidades na família $\{ \eta_x \}$ ou nos seus componentes $\eta_x$.
+Seja $\eta$ uma homotopia de $\gamma$ até $\msf{const}_p$ em $S^1$, e lembre-se que $\eta_\theta$ é a componente de $\eta$ em um ponto $\theta \in [0, 2\pi]$ fixo (pela Convenção 1.4). Pela continuidade de $\eta$,%
+\linebreak\vspace{-0.6em}
+%
+\begin{equation*}
+\begin{gathered}
+    \text{Para todo $\varepsilon > 0$, existe $\delta > 0$ tal que, para todo $\phi \in [0, 2\pi]$,}
+    \\
+    \text{se $0 < ||\gamma(\theta) - \gamma(\phi)|| < \delta$ e $t \in I$ }
+    \text{então $||\eta_{\theta}(t) - \eta_{\phi}(t)|| < \varepsilon$.}
+\end{gathered}
+\end{equation*}
+%
+Ou seja, os pontos $\gamma(\phi)$ que estão em uma vizinhança de $\gamma(\theta)$ em $S^1$ são associados a curvas $\eta_{\phi}$ cujos pontos $\eta_{\phi}(t)$ também devem estar em uma vizinhança dos pontos $\eta_{\theta}(t)$ em $\eta_\theta$ para todo $t \in I$. Contudo, é impossível que todos os pontos ``próximos'' de $\gamma(\pi) = -p$ estejam associados a curvas ``próximas'' de $\eta_\pi$, neste sentido, sem que elas interceptem o interior de $S^1$. Note que isto é consistente com a continuidade de $\eta$ em $\overline{B^2}$, pois $\overline{B^2}$ contém o seu interior; contudo, $S^1$ não. Portanto, como uma homotopia em $S^1$, $\eta$ deve possuir uma descontinuidade, o que é uma contradição.%
+\footnote
+{
+    {\it (Resumo da prova)} Assuma sem perda de generalidade que $\eta_\pi$ está contida no plano $y \geq 0$. Fixe $0 < \varepsilon < 1$ e seja $\delta > 0$ dado pela continuidade de $\eta$, na forma enunciada acima. Por fim, seja $\phi \in (\pi, \pi + \delta)$ tal que $\gamma(\phi)$ está contido no plano $y < 0$. Existe $t' \in I$ tal que $\eta_\pi(t') = (0, 1)$, e como $||\eta_\pi(t') - \eta_\phi(t')|| < 1$ então $\eta_\phi(t')$ pertence ao plano $y > 0$. Pelo Teorema do Valor Intermediário, existe $t_0 \in (0, t')$ tal que $\eta_\phi(t_0)$ intercepta a reta $y = 0$. Por fim, temos que $||\eta_\phi(t_0)|| < 1$. \qed
+}
+
+Essas observações dependem crucialmente do fato de que $S^1$ não contém o seu próprio interior. Se considerarmos espaços homeomórficos a $S^1$, como $\overline{B^2} \setminus \{ (0, 0) \}$, por possuírem essa propriedade, obtemos o mesmo resultado: não existem homotopias entre as curvas $\gamma$ e $\msf{const}_p$. Neste sentido, a existência ou não destas homotopias capturam formalmente o fato, visualmente evidente nesses casos particulares, de que $S^1$, $\overline{B^2} \setminus \{ (0, 0) \}$ possuem ``furos'', correspondendo às regiões onde ocorrem as descontinuidades no seu interior, enquanto $\overline{B^2}$ não possui ``buracos''. De fato, uma motivação histórica para o conceito de homotopia é determinar a existência desses ``furos'' em certos espaços topológicos (e em particular, em superfícies como $S^n$ e $\overline{B^{n + 1}}$).%
+\linebreak\vspace{-1.2em}
