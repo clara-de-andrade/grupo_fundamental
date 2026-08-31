@@ -2,12 +2,7 @@
 
 % TODO: rework
 
-Lembre-se que uma \emph{curva}%
-\footnote
-{
-    No contexto da teoria das homotopias, também é muito comum chamar curvas de \emph{caminhos}.
-}
-entre os pontos $p$, $q$ em um espaço $X$ é dada por uma função contínua $\gamma : I \to X$ parametrizada pelos pontos em um intervalo fechado $I = [a, b] \subseteq \R$, onde $\gamma(a) = p$ e $\gamma(b) = q$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = \R^2$.) Neste sentido, $\gamma$ é uma transformação contínua de $p$ até $q$ no espaço $X$, e informalmente, dizemos que o ponto $p$ é ``deformado'' por $\gamma$, que a deformação resulta em $q$, e que $X$ é o espaço onde ocorre essa deformação. De certa maneira, uma homotopia entre duas funções contínuas $f : X \to Y$ e $g : X \to Y$ representa uma transformação contínua de $f$ até $g$ no espaço $C(X, Y)$; ou seja, uma homotopia $\eta$ entre $f$ e $g$ é intuitivamente uma ``deformação'' de $f$ em $g$ ocorrendo em $C(X, Y)$.%
+Lembre-se que uma \emph{curva} entre os pontos $p$, $q$ em um espaço $X$ é dada por uma função contínua $\gamma : [a, b] \to X$ parametrizada pelos pontos em um intervalo fechado $[a, b] \subseteq \R$, onde $\gamma(a) = p$ e $\gamma(b) = q$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = \R^2$.) Neste sentido, $\gamma$ é uma transformação contínua de $p$ até $q$ no espaço $X$, e informalmente, dizemos que o ponto $p$ é ``deformado'' por $\gamma$, que a deformação resulta em $q$, e que $X$ é o espaço onde ocorre essa deformação. De certa maneira, uma homotopia entre duas funções contínuas $f : X \to Y$ e $g : X \to Y$ representa uma transformação contínua de $f$ até $g$ no espaço $C(X, Y)$; ou seja, uma homotopia $\eta$ entre $f$ e $g$ é intuitivamente uma ``deformação'' de $f$ em $g$ ocorrendo em $C(X, Y)$.%
 \footnote
 {
     Para valer esta intuição, o conjunto $C(X, Y)$ das funções contínuas de $X$ em $Y$ é considerado um espaço topológico sob a \emph{topologia compacto-aberta}. No caso particular em que $X$ é compacto e $Y$ é metrizável, então a topologia compacto-aberta em $C(X, Y)$ é induzida pela métrica do sup:
@@ -139,6 +134,8 @@ Mais que isso: se $\eta$ e $\eta'$ induzem curvas iguais, i.e.\@ $\eta_t = \eta'
 
 Em luz da discussão acima, denominamos a função $\eta$ uma ``homotopia''. Logo:
 
+\vspace{0.5em}
+
 \begin{definition}[(Homotopias)]
     Sejam $f$ e $g$ funções contínuas de $X$ em $Y$. Uma \emph{homotopia} de $f$ até $g$ é uma função $\eta : X \times I \to Y$ sujeita às seguintes condições:%
     \linebreak\vspace{-1.2em}
@@ -152,31 +149,23 @@ Em luz da discussão acima, denominamos a função $\eta$ uma ``homotopia''. Log
         $\eta$ é contínua.
 
         \item
-        $\eta(x, 0) = f(x)$.
+        $\eta(x, 0) = f(x)$
         
         \item
-        $\eta(x, 1) = g(x)$.
+        $\eta(x, 1) = g(x)$
         \qedalt
     \end{enumerate}
 \end{definition}
 
-\begin{convention}
-    Por um abuso de linguagem, se $\eta$ é uma homotopia de $f$ até $g$, então às vezes identificamos $\eta$ com a curva $t \mapsto \eta_t$ de $f$ até $g$ em $C(X, Y)$, e dizemos que esta curva é uma homotopia de $f$ até $g$.
-    \qedalt
-\end{convention}
-
-Considere o seguinte exemplo de homotopia. Sejam $f$ e $g$ funções contínuas de $X$ em um espaço normado $E$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = I$, $E = \R^2$). Fixe $x \in X$ e seja $\gamma_x(t) \in E$ dado para qualquer $t \in \R$ pela equação paramétrica%
+Considere o seguinte exemplo de homotopia. Sejam $f$ e $g$ funções contínuas de $X$ em um espaço normado $E$. (Para fins ilustrativos, considere p.\@ ex.\@ $X = I$, $E = \R^2$). Fixe $x \in X$ e seja $\eta(x, t) \in E$ dado para qualquer $t \in \R$ pela equação paramétrica%
 \linebreak\vspace{-0.5em}
 %
-\begin{equation*}
-\begin{aligned}
-        \gamma_x(t)
-    &=  (1 - t) \cdot f(x) + t \cdot g(x)
-    \\
-    &=  f(x) + t \cdot (g(x) - f(x))
-\end{aligned}
-\end{equation*}
-da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. Note que, para $t \in I$, os pontos da forma $\gamma_x(t)$ são exatamente os pontos no segmento de reta entre $f(x)$ e $g(x)$, com $\gamma_x(0) = f(x)$ e $\gamma_x(1) = g(x)$. É evidente que $(x, t) \mapsto \gamma_x(t)$ é contínua e, portanto, uma homotopia de $f$ até $g$. Notavelmente, $\gamma_x : t \mapsto \gamma_x(t)$ é uma família de curvas em $E$, os segmentos de reta entre $f(x)$ e $g(x)$, parametrizada por $x \in X$, e a continuidade dessa homotopia segue da continuidade de $x \mapsto \gamma_x$.%
+\begin{equation}
+        \eta(x, t)
+    =   (1 - t) \cdot f(x) + t \cdot g(x)
+\label{eq:homotopia_linear}
+\end{equation}
+da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. Note que, para $t \in I$, os pontos da forma $\eta(x, t)$ são exatamente os pontos no segmento de reta entre $f(x)$ e $g(x)$, com $\eta(x, 0) = f(x)$ e $\eta(x, 1) = g(x)$. É claro que $(x, t) \mapsto \eta(x, t)$ é contínua e, portanto, uma homotopia de $f$ até $g$. Notavelmente, $\eta_x : t \mapsto \eta(x, t)$ é uma família de curvas em $E$ (segmentos de reta entre $f(x)$ e $g(x)$) parametrizada por $x \in X$, e a continuidade dessa homotopia segue da continuidade de $x \mapsto \eta_x$.%
 \linebreak\vspace{-1.2em}
 
 \begin{figure}[htpb]
@@ -201,21 +190,21 @@ da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. 
         (0,-1)
         --
         (-4,-1)
-            node [left, yshift=2pt] {$\gamma_x(0) = f(x)$}
+            node [left, yshift=2pt] {$\eta(x, 0) = f(x)$}
         ;
 
     \draw [->]
         (0,-1)
         --
         (-2,1)
-            node [left, yshift=2pt] {$\gamma_x(1) = g(x)$}
+            node [left, yshift=2pt] {$\eta(x, 1) = g(x)$}
         ;
 
     \draw [->]
         (0,-1)
         --
-        (-3,0)
-            node [left, yshift=2pt] {$\gamma_x(t)$}
+        (-2.8,0.2)
+            node [left, yshift=2pt] {$\eta(x, t)$}
         ;
 
     \draw [fill]
@@ -227,7 +216,7 @@ da reta passando pelo ponto $f(x)$ e na mesma direção do vetor $g(x) - f(x)$. 
 \end{tikzpicture}
 \end{figure}
 
-Neste exemplo, a homotopia $(x, t) \mapsto \gamma_x(t)$ é dada por uma família $\{ \gamma_x \}_{ x \in X }$ de curvas em $Y$ indexada pelos pontos em $X$, onde $x \mapsto \gamma_x$ é uma função contínua de $X$ em $C(I, Y)$. Por outro lado, toda homotopia $\eta : X \times I \to Y$ no sentido da Definição 1.2 induz uma ``família contínua'' desta forma, onde $\gamma_x(t) = \eta(x, t)$. Logo:%
+Neste exemplo, a homotopia $(x, t) \mapsto \eta(x, t)$ é dada por uma família $\{ \eta_x \}_{ x \in X }$ de curvas em $Y$ indexada pelos pontos em $X$, onde $x \mapsto \eta_x$ é uma função contínua de $X$ em $C(I, Y)$. Por outro lado, toda homotopia $\eta : X \times I \to Y$ no sentido da Definição 1.2 induz uma ``família contínua'' desta forma, onde $\eta_x(t) = \eta(x, t)$. Logo:%
 \linebreak\vspace{-1.2em}
 
 \vspace{0.5em}
@@ -236,9 +225,9 @@ Neste exemplo, a homotopia $(x, t) \mapsto \gamma_x(t)$ é dada por uma família
     Existe uma bijeção natural
     \begin{equation*}
     \begin{gathered}
-        \Phi : \{ \text{funções contínuas de $X \times I$ em $Y$} \} \iso \{ \text{funções contínuas de $X$ em $C(I, Y)$} \},
+        \Phi : \{ \text{funções contínuas de $X \times I$ em $Y$} \} \iso \{ \text{``famílias contínuas'' de $X$ em $C(I, Y)$} \},
         \\
-        \Phi(\eta)(x)(t) = \eta(x, t)
+        \Phi(\eta)_x(t) = \eta(x, t)
     \end{gathered}
     \end{equation*}
     para todo $(x, t) \in X \times I$ e toda função contínua $\eta : X \times I \to Y$.
@@ -246,22 +235,25 @@ Neste exemplo, a homotopia $(x, t) \mapsto \gamma_x(t)$ é dada por uma família
 \end{proposition}
 
 \begin{convention}
-    Dada uma homotopia $\eta$, no que segue denotamos por $\{ \eta_x \}_{x \in X}$ a ``família contínua'' de curvas em $Y$ indexada por $X$ induzida por $\eta$, i.e.\@ onde $\eta_x(t) = \eta(x, t)$, e dizemos que $\eta_x$ é a \emph{componente} de $\eta$ em $x \in X$.
+    Dada uma homotopia $\eta$, no que segue denotaremos por $\{ \eta_x \}_{x \in X}$ a ``família contínua'' de curvas em $Y$ indexada por $X$ induzida por $\eta$, i.e.\@ onde $\eta_x(t) = \eta(x, t)$, e dizemos que $\eta_x$ é a \emph{componente} de $\eta$ em $x \in X$.
     \qedalt
 \end{convention}
 
 \begin{remark}
-    Pelas discussões acima, podemos enxergar homotopias como funçôes contínuas $X \times I \to Y$, curvas em $C(X, Y)$, ou ``família contínua'' de curvas em $Y$ indexada por $X$, a depender de qual representação for mais conveniente.
+    Pelas discussões acima, podemos enxergar homotopias como funçôes contínuas $X \times I \to Y$, curvas em $C(X, Y)$, ou ``famílias contínuas'' de curvas em $Y$ indexada por $X$, a depender de qual representação for mais conveniente.
     \qedalt
 \end{remark}
 
 Outro exemplo importante de homotopia concerne as curvas em $S^n$ e $\overline{B^{n + 1}}$, onde
 %
-\begin{equation*}
+\begin{equation}
+\begin{gathered}
     S^n = \{ x \in \R^{n + 1} : ||x|| = 1\},
-    \quad
-    \overline{B^{n + 1}} = \{ x \in \R^{n + 1} : ||x|| \leq 1\}
-\end{equation*}
+    \\
+    \overline{B^{n + 1}} = \{ x \in \R^{n + 1} : ||x|| \leq 1\},
+\end{gathered}
+\label{eq:sphere-ball}
+\end{equation}
 %
 são subespaços de $\R^{n + 1}$. Como espaços topológicos, dizemos que $S^n$ é uma \emph{$n$-esfera}, e que $\overline{B^{n + 1}}$ é uma \emph{$(n + 1)$-bola fechada}. Por exemplo, no caso $n = 1$, consideremos as homotopias da curva $\gamma(\theta) = (\cos(\theta), \sen(\theta))$, um círculo unitário centrado em $(0, 0)$, até a curva constante $\msf{const}_p(\theta) = p$ em $p = (1, 0)$, parametrizadas por $\theta \in [0, 2\pi]$.%
 \linebreak\vspace{-1.2em}
@@ -322,9 +314,10 @@ são subespaços de $\R^{n + 1}$. Como espaços topológicos, dizemos que $S^n$ 
 \end{figure}
 
 Para todo $(\theta, t) \in [0, 2\pi] \times I$, o segmento de reta dado pela equação paramétrica
-\begin{equation*}
+\begin{equation}
     \eta(\theta, t) = (1 - t) \cdot \gamma(\theta) + t \cdot p
-\end{equation*}
+\label{eq:linear_homotopy_2}
+\end{equation}
 está contido em $\overline{B^2}$ e é uma curva de $\gamma(\theta)$ até $p$, donde segue pelo exemplo anterior que $(\theta, t) \mapsto \eta(\theta, t)$ é uma homotopia de $\gamma$ até $\msf{const}_p$,%
 \footnote
 {
@@ -336,20 +329,27 @@ e em geral toda curva em $\overline{B^2}$ é homotópica a uma curva constante p
 Seja $\eta$ uma homotopia de $\gamma$ até $\msf{const}_p$ em $S^1$, e lembre-se que $\eta_\theta$ é a componente de $\eta$ em um ponto $\theta \in [0, 2\pi]$ fixo (pela Convenção 1.4). Pela continuidade de $\eta$,%
 \linebreak\vspace{-0.6em}
 %
-\begin{equation*}
+\begin{equation}
 \begin{gathered}
-    \text{Para todo $\varepsilon > 0$, existe $\delta > 0$ tal que, para todo $\phi \in [0, 2\pi]$,}
+    \text{Para todo $\varepsilon > 0$, existe $\delta > 0$ tal que, para todo $\omega \in [0, 2\pi]$,}
     \\
-    \text{se $0 < ||\gamma(\theta) - \gamma(\phi)|| < \delta$ e $t \in I$ }
-    \text{então $||\eta_{\theta}(t) - \eta_{\phi}(t)|| < \varepsilon$.}
+    \text{se $0 < |\theta - \omega| < \delta$, então }
+    \text{para todo $t \in I$, $||\eta_{\theta}(t) - \eta_{\omega}(t)|| < \varepsilon$.}
 \end{gathered}
-\end{equation*}
+\label{eq:cont_eta}
+\end{equation}
 %
-Ou seja, os pontos $\gamma(\phi)$ que estão em uma vizinhança de $\gamma(\theta)$ em $S^1$ são associados a curvas $\eta_{\phi}$ cujos pontos $\eta_{\phi}(t)$ também devem estar em uma vizinhança dos pontos $\eta_{\theta}(t)$ em $\eta_\theta$ para todo $t \in I$. Contudo, é impossível que todos os pontos ``próximos'' de $\gamma(\pi) = -p$ estejam associados a curvas ``próximas'' de $\eta_\pi$, neste sentido, sem que elas interceptem o interior de $S^1$. Note que isto é consistente com a continuidade de $\eta$ em $\overline{B^2}$, pois $\overline{B^2}$ contém o seu interior; contudo, $S^1$ não. Portanto, como uma homotopia em $S^1$, $\eta$ deve possuir uma descontinuidade, o que é uma contradição.%
+Ou seja, os pontos $\omega$ que estão em uma vizinhança de $\theta$ em $[0, 2\pi]$ são associados a curvas $\eta_{\omega}$ onde, para todo $t \in I$, o ponto $\eta_{\omega}(t)$ também devem estar em uma vizinhança de $\eta_{\theta}(t)$ em $S^1$. Contudo, é impossível que todos os pontos ``próximos'' de $\gamma(\pi) = -p$ estejam associados a curvas ``próximas'' de $\eta_\pi$, neste sentido, sem que elas interceptem o interior de $S^1$,%
 \footnote
 {
-    {\it (Resumo da prova)} Assuma sem perda de generalidade que $\eta_\pi$ está contida no plano $y \geq 0$. Fixe $0 < \varepsilon < 1$ e seja $\delta > 0$ dado pela continuidade de $\eta$, na forma enunciada acima. Por fim, seja $\phi \in (\pi, \pi + \delta)$ tal que $\gamma(\phi)$ está contido no plano $y < 0$. Existe $t' \in I$ tal que $\eta_\pi(t') = (0, 1)$, e como $||\eta_\pi(t') - \eta_\phi(t')|| < 1$ então $\eta_\phi(t')$ pertence ao plano $y > 0$. Pelo Teorema do Valor Intermediário, existe $t_0 \in (0, t')$ tal que $\eta_\phi(t_0)$ intercepta a reta $y = 0$. Por fim, temos que $||\eta_\phi(t_0)|| < 1$. \qed
+    {\it (Rascunho da prova)} Assuma sem perda de generalidade que $\eta_\pi(t)$ pertence ao plano $y \geq 0$ para todo $t \in I$. Fixe $0 < \varepsilon < 1$ e seja $\delta > 0$ tal que \eqref{eq:cont_eta}. Por fim, seja $\omega \in (\pi, \pi + \delta)$ tal que $\gamma(\omega)$ pertence ao plano $y < 0$. Como $\eta_\pi(t') = (0, 1)$ para algum $t' \in I$, e como $||\eta_\pi(t') - \eta_\omega(t')|| < \varepsilon < 1$ então $\eta_\omega(t')$ pertence ao plano $y > 0$. Pelo Teorema do Valor Intermediário, existe $t_0 \in (0, t')$ tal que $\eta_\omega(t_0)$ intercepta a reta $y = 0$. Portanto, $\eta_\omega(t_0)$ pertence ao interior de $S^1$, i.e.\@ $||\eta_\omega(t_0)|| < 1$.
 }
+e como o interior de $S^1$ em $\R^2$ é $\overline{B^2} \setminus S^1$, então $\eta$, como uma homotopia em $S^1$, deve possuir uma descontinuidade, o que é uma contradição.%
+\footnote
+{
+    Note que isto é consistente com a continuidade de $\eta$ em $\overline{B^2}$, que contém o seu interior em $\R^2$.
+}
+\linebreak\vspace{-1.2em}
 
-Essas observações dependem crucialmente do fato de que $S^1$ não contém o seu próprio interior. Se considerarmos espaços homeomórficos a $S^1$, como $\overline{B^2} \setminus \{ (0, 0) \}$, por possuírem essa propriedade, obtemos o mesmo resultado: não existem homotopias entre as curvas $\gamma$ e $\msf{const}_p$. Neste sentido, a existência ou não destas homotopias capturam formalmente o fato, visualmente evidente nesses casos particulares, de que $S^1$, $\overline{B^2} \setminus \{ (0, 0) \}$ possuem ``furos'', correspondendo às regiões onde ocorrem as descontinuidades no seu interior, enquanto $\overline{B^2}$ não possui ``buracos''. De fato, uma motivação histórica para o conceito de homotopia é determinar a existência desses ``furos'' em certos espaços topológicos (e em particular, em superfícies como $S^n$ e $\overline{B^{n + 1}}$).%
+Essas observações dependem crucialmente do fato de que $S^1$ não contém o seu próprio interior. Se considerarmos espaços homeomórficos a $S^1$, como $\overline{B^2} \setminus \{ (0, 0) \}$, por possuírem essa propriedade, obtemos o mesmo resultado: não existem homotopias entre as curvas $\gamma$ e $\msf{const}_p$. Neste sentido, a existência ou não destas homotopias capturam formalmente o fato, visualmente evidente nesses casos particulares, de que $S^1$, $\overline{B^2} \setminus \{ (0, 0) \}$ ``possuem furos'', correspondendo às regiões onde ocorrem as descontinuidades no seu interior, enquanto $\overline{B^2}$ não ``possui furos''. De fato, uma motivação histórica para o conceito de homotopia é determinar a existência de ``furos'' em certos espaços topológicos (e especialmente em superfícies como $S^n$ e $\overline{B^{n + 1}}$).%
 \linebreak\vspace{-1.2em}
