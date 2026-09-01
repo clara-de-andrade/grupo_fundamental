@@ -1,11 +1,11 @@
-\subsection{Curvas e conexidade}
+\subsection{Caminhos e conexidade}
 
-Se na seção anterior, por um lado, compreendemos uma curva de um ponto $p$ até outro $q$ como uma ``deformação'' de $p$ resultando em $q$, então nesta seção, por outro lado, compreenderemos uma curva entre $p$ e $q$ como um ``caminho'' que conecta $p$ e $q$ em um dado espaço. Veremos a seguir como desfrutar desta intuição sobre curvas.
+Se na seção anterior, por um lado, compreendemos uma curva de um ponto $p$ até outro $q$ como uma ``deformação'' de $p$ resultando em $q$, então nesta seção, por outro lado, compreenderemos uma curva entre $p$ e $q$ como um ``caminho'' que ``conecta'' $p$ e $q$ em um espaço. Veremos a seguir como desfrutar desta intuição sobre as curvas.
 
 \vspace{0.5em}
 
-\begin{definition}
-    Sejam $p$ e $q$ pontos quaisquer em $X$. Um \emph{caminho} de $p$ até $q$ é uma curva de $p$ até $q$ definida em $[0, 1]$, i.e.\@ uma função $\alpha : I \to X$ sujeita às condições:%
+\begin{definition}[(Caminhos)]
+    Sejam $p$ e $q$ pontos em $X$. Um \emph{caminho} de $p$ até $q$ é uma curva de $p$ até $q$ definida em $I$, i.e.\@ uma função $\alpha : I \to X$ sujeita às condições:%
     \linebreak\vspace{-1.2em}
 %
     \begin{enumerate}
@@ -26,11 +26,129 @@ Se na seção anterior, por um lado, compreendemos uma curva de um ponto $p$ at�
 \end{definition}
 
 \begin{remark}
-    Note que toda curva $[a, b] \to X$ definida em um intervalo fechado $[a, b] \subseteq \R$ arbitrário pode ser dada, de maneira equivalente, por um caminho $I \to X$, e em particular $t \mapsto (1 - t) \cdot a + t \cdot b$ é um homeomorfismo entre $I$ e $[a, b]$.
+    Note que toda curva $[a, b] \to X$ definida em um intervalo fechado $[a, b] \subseteq \R$ arbitrário pode ser dada, de maneira equivalente, por um caminho $I \to X$, pois em particular $t \mapsto (1 - t) \cdot a + t \cdot b$ é um homeomorfismo entre $I$ e $[a, b]$.
     \qedalt
 \end{remark}
 
-% exemplos, E, B^{n + 1}, S^n
+\begin{convention}
+    Dados dois pontos $p$ e $q$ em $X$, denotamos simbolicamente por $\alpha : p \pathto q$ o juízo de que $\alpha$ é um caminho de $p$ até $q$ em $X$, ou ainda por $p \pathto q$ caso $\alpha$ esteja implícito ou puder ser inferido pelo contexto. Neste caso, dizemos que \emph{$p$ está conectado a $q$ por $\alpha$ em $X$}, ou apenas que \emph{$p$ e $q$ estão conectados em $X$}.
+    \qedalt
+\end{convention}
+
+Brevemente, denotaremos por $[p] = \{ x \in X : p \pathto x \}$ o conjunto dos pontos conectados ao ponto $p$ em $X$, denominado o \emph{componente conexo por caminhos de $p$}. Uma das propriedades mais importantes deste conjunto, como o nome indica, é que ele é conexo. De fato, para cada $x \in [p]$, tome $\alpha_x : p \pathto x$ um caminho qualquer de $p$ até $x$, e seja $C_x = \alpha_x(I)$. Como $I$ é conexo então $C_x$ é conexo para todo $x \in X$, logo a união $\bigcup_{x \in X} C_x$ é conexa, e como $\bigcup_{x \in X} C_x = [p]$ então por fim $[p]$ é conexa. Em palavras, pontos conectados por caminhos em $X$ pertencem à mesma componente conexa em $X$. Em particular, destacamos o caso $X = [p]$ nos enunciados a seguir.%
+\linebreak\vspace{-1.2em}
+
+\vspace{0.5em}
+
+\begin{definition}[(Conexidade por caminhos)]
+    Dizemos que um espaço topológico $X$ é \emph{conexo por caminhos} se e apenas se, para quaisquer pontos $p$ e $q$ em $X$, temos $p \pathto q$ ou $q \pathto p$, ou ambos; ou seja, existe um caminho entre $p$ e $q$ em $X$.
+    \qedalt
+\end{definition}
+
+\begin{corollary}
+    Todo espaço conexo por caminhos é conexo.
+\end{corollary}
+
+Outra propriedade fundamental sobre as componentes conexas por caminhos de um espaço é que, assim como as componentes conexas (no sentido usual), elas particionam o espaço; em palavras, todo ponto pertence a uma, e somente uma, componente conexa por caminhos. Por um teorema da teoria dos conjuntos elementar, isto é equivalente a afirmar de que a relação $\pathto$ é uma equivalência entre pontos. Para fins de ilustração, desenvolvimos a seguir a demonstração destes fatos.
+
+Primeiro, é natural supor que $p \in [p]$, i.e.\@ que existe um caminho $p \pathto p$ de um ponto até ele mesmo, e de fato, em geral, existem múltiplos caminhos desta forma, mas evidentemente a forma mais natural de se definir $p \pathto p$ para um ponto $p$ arbitrário, sem fazer quaisquer assunções supérfluas sobre o espaço, é a seguinte:
+
+\vspace{0.5em}
+
+\begin{definition}[(Caminho constante)]
+    Dado um ponto qualquer $p$, definimos por
+%
+    \begin{equation*}
+        \msf{const}_p(t) = p
+    \end{equation*}
+%
+    para todo $t \in I$ o \emph{caminho constante} em $p$.
+    \qedalt
+\end{definition}
+
+Segundo, dados três pontos $p$, $q$ e $x$, se temos ambos $x \in [p]$ e $x \in [q]$, então devemos ter $[p] = [q]$ também; ou, de maneira equivalente, se temos $[p] \neq [q]$, então $[p]$ e $[q]$ devem ser disjuntos. Em palavras, se $p$ e $q$ estão conectados a um mesmo ponto $x$ por caminhos $\alpha : p \pathto x$ e $\beta : q \pathto x$, então $p$ e $q$ estão conectados por um caminho $\gamma : p \pathto q$ também. Novamente, em geral, existem várias formas de se definir o caminho $\gamma$, mas uma maneira bem natural consiste, informalmente, em ``inverter'' a orientação de $\beta$, e então ``grudar'' $\alpha$ e a ``inversão'' de $\beta$ ao longo de uma extremidade $x$ em comum.
+
+\begin{comment}
+Formalmente, isto consiste em definir $\gamma(t)$ para todo $t \in I$ por partes:%
+\linebreak\vspace{-0.6em}
+\begin{equation*}
+    \gamma(t) =
+    \begin{cases}
+        \alpha(2t) & \text{se $0 \leq t \leq 1/2$} \\
+        \beta(1 - 2t) & \text{se $1/2 \leq t \leq 1$}
+    \end{cases}
+\end{equation*}
+
+\begin{figure}[htpb]
+\centering
+\begin{tikzpicture}
+    % TODO: diagram
+\end{tikzpicture}
+\end{figure}
+
+
+Portanto, temos que $\alpha(t) = \gamma(t / 2)$ e $\beta(t) = \gamma(1 - t / 2)$ para todo $t \in I$; ou seja, $\gamma$ percorre, na primeira metade $[0, 1/2]$ do intervalo $I$, todos os mesmos pontos que $\alpha$, e na mesma direção, de $p$ até $x$, enquanto, na segunda metade $[1/2, 1]$ de $I$, percorre os mesmos pontos que $\beta$, mas desta vez na direção inversa, de $x$ até $q$.%
+\linebreak\vspace{-1.2em}
+
+Mais ainda formalmente, a definição de $\gamma$ envolve duas operações fundamentais entre caminhos, respectivamente a \emph{inversão}, que ``inverte'' um caminho $q \pathto x$ em outro $x \pathto q$, e a \emph{concatenação}, que ``gruda'' dois caminhos $p \pathto x$ e $x \pathto q$ com um extremo $x$ em comum para formar um novo $p \pathto q$.
+\end{comment}
+
+\begin{comment}
+    
+Suponha que $X$ é um espaço onde todo ponto é ``conectado'' por um caminho até qualquer outro ponto. Uma das propriedades mais importantes deste espaço é que ele é conexo. De fato, assuma por contradição que $X$ é disconexo, i.e.\@ que existem conjuntos $U$ e $V$ não-vazios e abertos em $X$ tais que $U \cup V = X$ e $U \cap V = \emptyset$, e sejam $x \in U$ e $y \in V$ pontos quaisquer. Por suposição, existe um caminho $\alpha : I \to X$ entre $x$ e $y$, e como $\alpha$ é uma função contínua com $\alpha(0) = x$ e $\alpha(1) = y$, então $J = \alpha^{-1}(U)$ e $K = \alpha^{-1}(V)$ são conjuntos não-vazios e abertos em $I$, e em adição:
+%
+\begin{center}
+\(
+\begin{aligned}
+        J \cup K
+    &=  \alpha^{-1}(U) \cup \alpha^{-1}(V)
+    \\
+    &=  \alpha^{-1}(U \cup V)
+    \\
+    &=  \alpha^{-1}(X)
+    \\
+    &=  I
+\end{aligned}
+\)
+\qquad
+\(
+\begin{aligned}
+        J \cap K
+    &=  \alpha^{-1}(U) \cap \alpha^{-1}(V)
+    \\
+    &=  \alpha^{-1}(U \cap V)
+    \\
+    &=  \alpha^{-1}(\emptyset)
+    \\
+    &=  \emptyset
+\end{aligned}
+\)
+\end{center}
+
+Portanto, $I$ é disconexo, o que é uma contradição.%
+\footnote
+{
+    Para ver que $I$ deve ser conexo, considere a função $d : J \times K \to I$ dada por $d(j, k) = |j - k|$ para todo $(j, k) \in J \times K$. Como $J \times K$ é compacto, pois $I$ é compacto, então existe $(j, k) \in (J, K)$ tal que $d(j, k)$ é um mínimo de $d$ em $J \times K$. Assumindo sem perda de generalidade que $j < k$, temos $j < i < k$ para algum $i \in I$ pela completude de $\R$. Contudo, se $i \in J$ então $d(i, k) < d(j, k)$, e se $i \in K$ então $d(j, i) < d(j, k)$, o que é uma contradição à minimalidade de $d(j, k)$ em $J \times K$.
+}
+Dito de maneira mais formal:
+
+\vspace{0.5em}
+
+\begin{definition}[(Conexidade por caminhos)]
+    Dizemos que um espaço topológico $X$ é \emph{conexo por caminhos} se e apenas se, para quaisquer pontos $p$ e $q$ em $X$, existe um caminho de $p$ até $q$ em $X$.
+    \qedalt
+\end{definition}
+
+\begin{corollary}
+    Todo espaço conexo por caminhos é conexo.
+\end{corollary}
+\end{comment}
+
+% definição: espaço conexo por caminhos
+
+% proposição: conexo por caminhos é conexo
+
+% exemplo: gráfico de sen(x) / x
 
 \begin{comment}
 
