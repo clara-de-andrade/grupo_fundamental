@@ -27,7 +27,6 @@
 \newcommand*\C{\ensuremath{\mathbb{C}}}
 \renewcommand*\emptyset{\ensuremath{\varnothing}}
 
-\newcommand*\del{\ensuremath{\partial}}
 \newcommand*\D{\ensuremath{\mathrm{d}}}
 \newcommand*\df{\ensuremath{\mathrm{df}}}
 
@@ -76,9 +75,25 @@
 \newcommand*\Grp{\ensuremath{\msf{Grp}}}
 \newcommand*\Ab{\ensuremath{\msf{Ab}}}
 
+\newcommand*\Top{\ensuremath{\msf{Top}}}
+\newcommand*\Frm{\ensuremath{\msf{Frm}}}
+
 % Topology
+\newcommand*\del{\ensuremath{\partial}}
+\let\int\relax
+\DeclareMathOperator{\int}{int}
+\DeclareMathOperator{\cl}{cl}
+
 \newcommand*\pathto{\ensuremath{\mathrel{\rightsquigarrow}}}
-\renewcommand*\int{\ensuremath{\msf{int}}}
+
+\makeatletter
+\DeclareRobustCommand{\concat}{\mathbin{\mathpalette\morphic@concat\relax}}
+\newcommand*{\morphic@concat}[2]{%
+  \sbox\z@{$\m@th#1\centerdot$}%
+  \ht\z@=.33333\ht\z@
+  \vcenter{\box\z@}%
+}
+\makeatother
 
 % Proof environment notation
 \newcommand*\qedsymbol{\ensuremath{\quad\square}}
@@ -132,6 +147,17 @@
 \newenvironment{convention}[1][]%
 {\refstepcounter{definition}%
 \noindent{{\bfseries Convenção \thedefinition}.
+\ifstrempty{#1}{}{#1}}}
+{\par\vspace{0.5em}}
+\makeatother
+
+\newcounter{example}
+\counterwithin{example}{section}
+
+\makeatletter
+\newenvironment{example}[1][]%
+{\refstepcounter{example}%
+\noindent{{\bfseries Exemplo \theexample}.
 \ifstrempty{#1}{}{#1}}}
 {\par\vspace{0.5em}}
 \makeatother
